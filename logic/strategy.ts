@@ -18,7 +18,7 @@ export function decide(table: Table): Bet {
 
             let highBet = false;
             bets.forEach(bet => {
-                if (Math.log(bet) > 1.5*normalized) {
+                if (Math.log(bet) > 1.2*normalized) {
                     highBet = true
                 }
             })
