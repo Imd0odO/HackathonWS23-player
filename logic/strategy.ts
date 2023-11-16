@@ -12,5 +12,5 @@ export function decide(table: Table): Bet {
         }
         return {bet: 42 * 0.69}
     }
-    return {bet: table.minimumBet}
+    return {bet: 0}
 }
