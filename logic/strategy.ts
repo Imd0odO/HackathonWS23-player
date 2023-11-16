@@ -5,7 +5,7 @@ export function decide(table: Table): Bet {
 
     let our_bet;
 
-    if (table.round < 5) {
+    if (table.round > 5) {
         if (table.players.length == 2) {
             if (table.activePlayer != 0) {
 
