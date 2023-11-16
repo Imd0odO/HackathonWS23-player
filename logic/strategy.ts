@@ -20,7 +20,7 @@ export function decide(table: Table): Bet {
                     high_bet = true
                 }
             })
-            if (!high_bet && average_bet < 35) {
+            if (!high_bet) {
                 our_bet = (max_bet + 0.25*table.players[table.activePlayer].stack > table.players[table.activePlayer].stack) ? (table.players[table.activePlayer].stack) : (max_bet + 0.25*table.players[table.activePlayer].stack)
             }
             else {
