@@ -5,25 +5,30 @@ export function decide(table: Table): Bet {
 
     let max_bet = table.minimumBet;
 
-    if (table.activePlayer != 0) {
-        let bets = table.players.map(player => player.bet)
-        bets.slice(table.activePlayer)
+    if (table.players.length > 2) {
+        if (table.activePlayer != 0) {
+            let bets = table.players.map(player => player.bet)
+            bets.slice(table.activePlayer)
 
-        let normalized_sum = 0;
+            let normalized_sum = 0;
 
-        bets.forEach(bet => normalized_sum += Math.log(bet))
+            bets.forEach(bet => normalized_sum += Math.log(bet))
 
-        let normalized = normalized_sum / table.activePlayer
+            let normalized = normalized_sum / table.activePlayer
 
-        let highBet = false;
-        bets.forEach(bet => {
-            if (Math.log(bet) > 1.5*normalized) {
-                highBet = true
+            let highBet = false;
+            bets.forEach(bet => {
+                if (Math.log(bet) > 1.5*normalized) {
+                    highBet = true
+                }
+            })
+            if (!highBet){
+                max_bet = table.players[table.activePlayer].stack
             }
-        })
-        if (!highBet){
-            max_bet = table.players[table.activePlayer].stack
         }
+    }
+    else {
+        max_bet = 0.75 * table.players[table.activePlayer].stack
     }
 
     return {bet: max_bet};
