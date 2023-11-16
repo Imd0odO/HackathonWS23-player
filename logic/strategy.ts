@@ -7,24 +7,14 @@ export function decide(table: Table): Bet {
 
     if (table.players.length > 2) {
         if (table.activePlayer != 0) {
-            let bets = table.players.map(player => player.bet)
-            bets.slice(table.activePlayer)
 
-            let normalized_sum = 0;
+            let average_bet = table.pot / table.activePlayer
 
-            bets.forEach(bet => normalized_sum += Math.log(bet))
-
-            let normalized = normalized_sum / table.activePlayer
-
-            let highBet = false;
-            bets.forEach(bet => {
-                if (Math.log(bet) > 1.2*normalized) {
-                    highBet = true
+            table.players.forEach(player => {
+                if (Math.log(player.bet) > 1.2*Math.log(average_bet)) {
+                    max_bet = table.players[table.activePlayer].stack
                 }
             })
-            if (!highBet){
-                max_bet = table.players[table.activePlayer].stack
-            }
         }
     }
     else {
