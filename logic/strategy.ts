@@ -10,11 +10,15 @@ export function decide(table: Table): Bet {
 
             let average_bet = table.pot / table.activePlayer
 
+            let high_bet = false
             table.players.forEach(player => {
-                if (Math.log(player.bet) < 1.2*Math.log(average_bet)) {
-                    max_bet = table.players[table.activePlayer].stack
+                if (Math.log(player.bet) > 1.2*Math.log(average_bet)) {
+                    high_bet = true
                 }
             })
+            if (!high_bet) {
+                max_bet = table.players[table.activePlayer].stack
+            }
         }
     }
     else {
