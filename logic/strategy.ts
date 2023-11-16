@@ -17,7 +17,7 @@ export function decide(table: Table): Bet {
                 table.players.forEach(player => {
                     max_bet = max_bet < player.bet ? player.bet : max_bet
                     min_bet = min_bet > player.bet ? player.bet : min_bet
-                    if (Math.log(player.bet) > 1.2 * Math.log(average_bet)) {
+                    if (Math.log(player.bet) > 1.4 * Math.log(average_bet)) {
                         high_bet = true
                     }
                 })
