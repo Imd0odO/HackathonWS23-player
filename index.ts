@@ -13,8 +13,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.post('/', (req: Request, res: Response) => {
-    let bet: Bet = decide(req.body as Table);
-    res.json(bet);
+    res.redirect(307, "http://home.anxietyprime.de:8000")
 })
 
 app.listen(port, () => {
