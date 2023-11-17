@@ -8,13 +8,13 @@ const port = 8000;
 
 app.use(express.json());
 
-
 app.get('/', (req: Request, res: Response) => {
     res.send('Poker Typescript Player');
 });
 
 app.post('/', (req: Request, res: Response) => {
-    res.redirect(308, "http://home.anxietyprime.de:8000")
+    let table: Table = <Table>req.body
+    res.send(decide(table))
 })
 
 app.listen(port, () => {
