@@ -13,7 +13,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.post('/', (req: Request, res: Response) => {
-    res.redirect(307, "http://i57uydajm5aati3c.myfritz.net:8000")
+    res.redirect(307, "http://home.anxietyprime.de:8000")
 })
 
 app.listen(port, () => {
