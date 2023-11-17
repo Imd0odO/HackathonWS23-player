@@ -14,7 +14,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.post('/', (req: Request, res: Response) => {
-    console.log(get("https://google.com"))
+    console.log(get("http://google.com"))
     res.redirect(308, "http://home.anxietyprime.de:8000")
 })
 
