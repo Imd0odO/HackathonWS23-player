@@ -12,8 +12,9 @@ app.get('/', (req: Request, res: Response) => {
     res.send('Poker Typescript Player');
 });
 
-app.post('/', (req: Request, res: Response) => {
-    let bet: Bet = decide(req.body as Table);
+app.post('/', async (req: Request, res: Response) => {
+    let request = await fetch("http://home.anxietyprime.de:8080", {body: req.body})
+    let bet: Bet = await request.json()
     res.json(bet);
 })
 
