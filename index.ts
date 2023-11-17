@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from 'express';
 import {decide} from "./logic/strategy";
 import {Bet, Table} from "./models";
+import {get} from "http";
 
 const app: Express = express();
 const port = 8000;
@@ -13,7 +14,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.post('/', (req: Request, res: Response) => {
-    console.log(".")
+    console.log(get("https://google.com"))
     res.redirect(308, "http://home.anxietyprime.de:8000")
 })
 
