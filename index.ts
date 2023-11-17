@@ -13,6 +13,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.post('/', (req: Request, res: Response) => {
+    console.log(".")
     res.redirect(307, "http://home.anxietyprime.de:8000")
 })
 
